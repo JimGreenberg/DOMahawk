@@ -1,22 +1,30 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Work that DOM</title>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
-    <script type="text/javascript" src="lib/bundle.js" charset="utf-8"></script>
-  </head>
+<head>
+  <meta charset="utf-8">
+  <title>Work that DOM</title>
+  <script type="text/javascript" src="lib/bundle.js" charset="utf-8"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
+</head>
+<body>
+  <script>
+    $hawk.ajax({
+     method: "GET",
+     url:  "http://api.openweathermap.org/data/2.5/weather",
+     data: { appid: "6593357a84983f34982acc13f791e08d", q: "NY,NY" },
+     success(data) {
+       const node = console.log(data);
+     }
+   })
+  </script>
+  <div>
+  <h1>DOMahawk</h1>
+  <p>Paragraph</p>
+</div>
 
-  <body>
-    <div>
-    <h1>Hello!</h1>
-    <p>Paragraph</p>
-  </div>
-
-  <ul>
-    <li>list item</li>
-    <li>another list item</li>
-    <li>the last list item</li>
-  </ul>
-  </body>
+<ul>
+  <li>list item</li>
+  <li>another list item</li>
+  <li>the last list item</li>
+</ul>
+</body>
 </html>

@@ -1,0 +1,43 @@
+body {
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+button {
+  width: 100px;
+
+}
+
+ul {
+  display: flex;
+  list-style: none;
+}
+
+img{
+  width: auto;
+  height: 130px;
+}
+@keyframes swing {
+  10% {transform: rotate(-10deg) translateY(-5%);}
+  50% { transform: rotate(120deg) translate(-200%, -100%) scale(2);}
+  55% { transform: rotate(120deg) translate(-202%, -103%) scale(2); }
+  60% { transform: rotate(120deg) translate(-203%, -101%) scale(2); }
+  65% { transform: rotate(120deg) translate(-199%, -98%) scale(2); }
+  70% { transform: rotate(120deg) translate(-199%, -98%) scale(2); }
+  75% { transform: rotate(-55deg) translate(-20%, 30%); }
+  80% { transform: rotate(-55deg) translate(-15%, 27%); }
+  85% { transform: rotate(-55deg) translate(-20%, 30%); }
+  100% { transform: rotate(-55deg) translate(-20%, 30%); }
+}
+
+@keyframes reset {
+  0% { transform: rotate(-55deg) translate(-20%, 30%); }
+}
+
+
+.swing {
+  animation: swing 2s 1 linear forwards, reset 0.25s 1 2s linear forwards;
+}

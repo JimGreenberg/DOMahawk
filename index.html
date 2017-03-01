@@ -1,30 +1,53 @@
 <!DOCTYPE html>
+<html>
 <head>
   <meta charset="utf-8">
-  <title>Work that DOM</title>
+  <title>DOMahawk</title>
   <script type="text/javascript" src="lib/bundle.js" charset="utf-8"></script>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="stylesheet.scss">
+  <script type="text/javascript" charset="utf-8">
+
+
+  const jgifs = () => {
+    return $hawk.ajax({
+      url: 'http://api.giphy.com/v1/gifs/search?q=dogs&api_key=dc6zaTOxFJmzC&rating=pg&limit=5&fixed-height=true',
+      method: 'GET',
+      success: gifs => appendGifs(gifs)
+    })
+  };
+
+  const appendGifs = gifs => {
+    $gifList = $hawk('ul');
+    $gifList.empty();
+    $gifListItems = gifs.data.map(gif => {
+      let img = document.createElement('img');
+      img.src = gif.images.original.url;
+      let li = document.createElement('li');
+      li.appendChild(img)
+      $gifList.append($hawk(li)) ;
+    });
+
+  };
+
+    $hawk(() => { //document ready
+      $hawk('#swing').on('click', () => {
+        $hawk('#logo').addClass('swing')
+        setTimeout(() => $hawk('#logo').removeClass('swing'), 3000)
+      })
+      jgifs()
+
+  });
+  </script>
 </head>
 <body>
-  <script>
-    $hawk.ajax({
-     method: "GET",
-     url:  "http://api.openweathermap.org/data/2.5/weather",
-     data: { appid: "6593357a84983f34982acc13f791e08d", q: "NY,NY" },
-     success(data) {
-       const node = console.log(data);
-     }
-   })
-  </script>
-  <div>
-  <h1>DOMahawk</h1>
-  <p>Paragraph</p>
-</div>
 
-<ul>
-  <li>list item</li>
-  <li>another list item</li>
-  <li>the last list item</li>
-</ul>
+  <h1 style="font-family: sans-serif;">DOMahawk Demo</h1>
+
+  <img id='logo' src='logo.svg'/>
+
+  <button id='swing'>Swing</button>
+  <p>5 dog gifs fetched from the Giphy API</p>
+  <ul id='gif-list'>
+  </ul>
 </body>
 </html>

@@ -4,50 +4,63 @@
   <meta charset="utf-8">
   <title>DOMahawk</title>
   <script type="text/javascript" src="lib/bundle.js" charset="utf-8"></script>
-  <link rel="stylesheet" href="stylesheet.scss">
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+
   <script type="text/javascript" charset="utf-8">
+    const jgifs = () => {
+      var num = $hawk("#gif-list").children().nodes[0].length;
+      return $hawk.ajax({
+        url: `http://api.giphy.com/v1/gifs/search?q=dogs&api_key=dc6zaTOxFJmzC&rating=pg&limit=${num}&fixed-height=true`,
+        method: 'GET',
+        success: gifs => appendGifs(gifs)
+      })
+    };
 
+    const appendGifs = gifs => {
+      $gifList = $hawk('ul');
 
-  const jgifs = () => {
-    return $hawk.ajax({
-      url: 'http://api.giphy.com/v1/gifs/search?q=dogs&api_key=dc6zaTOxFJmzC&rating=pg&limit=5&fixed-height=true',
-      method: 'GET',
-      success: gifs => appendGifs(gifs)
-    })
-  };
+      gifs.data.map(gif => {
+        let img = document.createElement('img');
+        img.src = gif.images.original.url;
+        let $li = $hawk('ul').children().nodes[0][gifs.data.indexOf(gif)];
+        $li.innerHTML = null;
+        $li.append(img);
+      });
 
-  const appendGifs = gifs => {
-    $gifList = $hawk('ul');
-    $gifList.empty();
-    $gifListItems = gifs.data.map(gif => {
-      let img = document.createElement('img');
-      img.src = gif.images.original.url;
-      let li = document.createElement('li');
-      li.appendChild(img)
-      $gifList.append($hawk(li)) ;
-    });
-
-  };
+    };
 
     $hawk(() => { //document ready
       $hawk('#swing').on('click', () => {
         $hawk('#logo').addClass('swing')
         setTimeout(() => $hawk('#logo').removeClass('swing'), 3000)
       })
-      jgifs()
-
-  });
+      $hawk('#gif').on('click', jgifs)
+      $hawk('#add').on('click', () => $hawk('ul').append('<li>'))
+      $hawk('#clear').on('click', () => $hawk('ul').empty())
+      $hawk('#remove').on('click', () => $hawk('ul').children().nodes[0][0].remove())
+    });
   </script>
 </head>
+
 <body>
 
   <h1 style="font-family: sans-serif;">DOMahawk Demo</h1>
-
-  <img id='logo' src='logo.svg'/>
-
-  <button id='swing'>Swing</button>
-  <p>5 dog gifs fetched from the Giphy API</p>
-  <ul id='gif-list'>
-  </ul>
+<div class='horiz'>
+  <div>
+    <img id='logo' src='logo.svg'/>
+    <button id='swing'>Swing</button>
+  </div>
+  <div>
+    <p>Add or remove slots to the document using the buttons<br />Then fetch dog gifs from the Giphy API using an AJAX request</p>
+    <div class='horiz'>
+      <button id='add'>Add Slot</button>
+      <button id='remove'>Remove Slot</button>
+      <button id='gif'>Go Fetch!</button>
+      <button id='clear'>Clear</button>
+    </div>
+    <ul id='gif-list'>
+    </ul>
+  </div>
+  </div>
 </body>
 </html>

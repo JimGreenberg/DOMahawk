@@ -1,0 +1,104 @@
+
+h1 {
+  margin-bottom: 5%;
+}
+body {
+  width: 90%;
+  margin: 0 auto;
+  height: 100vh;
+  text-align: center;
+  background: rgb(215, 211, 185);
+  font-family: sans-serif;
+}
+div {
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  align-items: center;
+  justify-content: space-around;
+  background: white;
+  margin: 10px 0;
+  padding: 10px;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+  border: 1px solid #999;
+  border-radius: 3px;
+  text-align: center;
+}
+img:first-of-type {
+  height: 200px;
+  width: 200px;
+}
+.horiz {
+  align-self: center;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  box-shadow: none;
+  border: none;
+  background: none;
+}
+button {
+  padding: 5px 15px;
+  margin: 0 5px;
+}
+ul {
+  padding: 0 5px;
+  align-items: center;
+  display: flex;
+  width: 690px;
+  list-style: none;
+  flex-wrap: wrap;
+}
+li {
+  width: 130px;
+  height: 130px;
+  overflow: hidden;
+  border: 1px solid #999;
+  margin: 3px;
+}
+img {
+  width: 100%;
+  height: 100%;
+}
+@keyframes swing {
+  10% {
+    transform: rotate(-10deg) translateY(-5%);
+  }
+  50% {
+    transform: rotate(120deg) translate(-200%, -100%) scale(2);
+  }
+  55% {
+    transform: rotate(120deg) translate(-202%, -103%) scale(2);
+  }
+  60% {
+    transform: rotate(120deg) translate(-203%, -101%) scale(2);
+  }
+  65% {
+    transform: rotate(120deg) translate(-199%, -98%) scale(2);
+  }
+  70% {
+    transform: rotate(120deg) translate(-199%, -98%) scale(2);
+  }
+  75% {
+    transform: rotate(-55deg) translate(-20%, 30%);
+  }
+  80% {
+    transform: rotate(-55deg) translate(-15%, 27%);
+  }
+  85% {
+    transform: rotate(-55deg) translate(-20%, 30%);
+  }
+  100% {
+    transform: rotate(-55deg) translate(-20%, 30%);
+  }
+}
+@keyframes reset {
+  0% {
+    transform: rotate(-55deg) translate(-20%, 30%);
+  }
+}
+.swing {
+  animation: swing 2s 1 linear forwards, reset 0.25s 1 2s linear forwards;
+}

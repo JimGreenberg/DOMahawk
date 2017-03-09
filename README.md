@@ -1,4 +1,4 @@
-#DOMAhawk
+#DOMahawk
 DOMahawk is a lightweight, flexible and feature-rich JavaScript library inspired by the industry standard library jQuery.
 You can check out a demo here: [Live Demo](http://www.jim-greenberg.com/scissor-io/)
 

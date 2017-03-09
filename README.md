@@ -21,7 +21,7 @@ Currently, DOMahawk serves three main purposes, all of which are expressed as fu
   3. Make AJAX requests
   ```javascript
   $hawk.ajax({
-    url: http://www.example.com,
+    url: `http://www.example.com`,
     method: GET,
     success: exampleCallback,
     error: exampleErrorCallback,

@@ -1,32 +1,48 @@
-
-h1 {
-  margin-bottom: 5%;
-}
 body {
-  width: 90%;
+  width: 85%;
   margin: 0 auto;
   height: 100vh;
   text-align: center;
-  background: rgb(215, 211, 185);
+  background: url(http://bgfons.com/upload/stone_texture4732.jpg) round;
   font-family: sans-serif;
+  font-style: normal;
+}
+.title {
+  height: auto;
+  width: 40%;
+  margin: -3% 0 -4%;
+}
+.fa {
+  margin: 0 5px;
+  color: white;
+  text-shadow: 0 0 5px rgba(0,0,0,0.5);
+  font-size: 25px;
 }
 div {
-  width: auto;
-  height: auto;
   display: flex;
   flex-direction: column;
   align-self: flex-start;
   align-items: center;
   justify-content: space-around;
   background: white;
-  margin: 10px 0;
+  margin: 10px;
   padding: 10px;
-  box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
   border: 1px solid #999;
   border-radius: 3px;
   text-align: center;
 }
-img:first-of-type {
+.para {
+  text-align: left;
+  padding: 10px 20px;
+  margin: 0 auto -10px;
+  width: 85%;
+}
+.para p::first-line{
+  font-size: 25px;
+  font-weight: 700;
+}
+.logo {
   height: 200px;
   width: 200px;
 }
@@ -34,7 +50,7 @@ img:first-of-type {
   align-self: center;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   box-shadow: none;
   border: none;
   background: none;
@@ -48,6 +64,7 @@ ul {
   align-items: center;
   display: flex;
   width: 690px;
+  min-height: 60px;
   list-style: none;
   flex-wrap: wrap;
 }

@@ -1,6 +1,9 @@
-#DOMAhawk
+#DOMahawk
 DOMahawk is a lightweight, flexible and feature-rich JavaScript library inspired by the industry standard library jQuery.
 You can check out a demo here: [Live Demo](http://www.jim-greenberg.com/scissor-io/)
+
+##Setup
+DOMahawk does not currently have an npm module- to use, simply clone the `/lib` directory and either add the premade `bundle.js` to your project directory or run `webpack lib/main.js <OUTPUT_FILE_NAME>.js` to generate your own webpacked bundle. The latter option will allow you to customize DOMahawk to better suit your projects specific needs. In either case, the output file will need to be `require()`'d in your projects code.
 
 ##API
 Currently, DOMahawk serves three main purposes, all of which are expressed as functions namespaced as `$hawk`:
@@ -21,7 +24,7 @@ Currently, DOMahawk serves three main purposes, all of which are expressed as fu
   3. Make AJAX requests
   ```javascript
   $hawk.ajax({
-    url: http://www.example.com,
+    url: `http://www.example.com`,
     method: GET,
     success: exampleCallback,
     error: exampleErrorCallback,
